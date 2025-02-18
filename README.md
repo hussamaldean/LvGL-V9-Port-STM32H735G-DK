@@ -19,8 +19,6 @@ The example is configured for 32-bit XRGB888 color format, which is the native c
 All buffers are located in the external OctaSPI RAM with size of 16MB and only 1.49MB is used.
 The external OctaSPI flash is in memory mapped mode where you can store images etc to the external flash (Include external Loader in the debug configuration of STM32CubeIDE from ExternalLoader folder).
 
-If more memory is needed for the application, a single buffer may be used, or partial buffering can be used. There is no strict rule for the optimum partial buffer size, as it depends on many factors (screen size, screen content, processor speed, RAM speed, type of the LCD interface). In practice a 1/10th screen size buffer is a good compromise between performance and memory use, but this is an area for potential optimization, depending on the application.
-
 
 
 ## Specification
