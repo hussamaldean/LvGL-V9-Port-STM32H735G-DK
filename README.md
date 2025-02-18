@@ -14,6 +14,15 @@ The full range of hardware features available on the board helps users to enhanc
 
 STLINK-V3E is integrated into the board, as the embedded in-circuit debugger and programmer for the STM32 MCU and USB Virtual COM port bridge.
 
+### Buffer configuration
+The example is configured for 32-bit XRGB888 color format, which is the native color format of the panel. The project uses [LVGL's LTDC driver](https://docs.lvgl.io/master/details/integration/driver/display/st_ltdc.html) in double-buffered partial rendering. A single buffer requires 510kB memory. 
+All buffers are located in the external OctaSPI RAM with size of 16MB and only 1.49MB is used.
+The external OctaSPI flash is in memory mapped mode where you can store images etc to the external flash (Include external Loader in the debug configuration of STM32CubeIDE from ExternalLoader folder).
+
+If more memory is needed for the application, a single buffer may be used, or partial buffering can be used. There is no strict rule for the optimum partial buffer size, as it depends on many factors (screen size, screen content, processor speed, RAM speed, type of the LCD interface). In practice a 1/10th screen size buffer is a good compromise between performance and memory use, but this is an area for potential optimization, depending on the application.
+
+
+
 ## Specification
 
 ### CPU and memory
@@ -43,3 +52,7 @@ Connect your micro-usb cable to STLK (CN15) and the other end to your PC.
 - Open *STM32CubeIDE* and import project:` File => Open Projects from File System... => Directory => Select the "STM32CubeIde" folder => Finish`
 - Build the project (for the best performance use *Release* configuration with *-O2* flag): `Project => Build Project`
 - Click the ![image](https://github.com/lvgl/lv_port_riverdi_70-stm32h7/assets/7599318/ad1ba904-f917-4e0c-97b3-1c1ca12cf185) Run button to flash the project
+
+- ### Debugging
+- After building the project click the Debug button ![image](https://github.com/lvgl/lv_port_riverdi_70-stm32h7/assets/7599318/369e95fb-dbfb-44d8-9250-0a5f3f8bfc60) to flash the project. You will need to select the correct debug probe for the first run.
+
