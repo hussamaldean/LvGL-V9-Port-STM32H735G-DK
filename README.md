@@ -39,7 +39,7 @@ Connect your micro-usb cable to STLK (CN15) and the other end to your PC.
 - Install [STM32 CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html).
 
 ### Run the project
-- Clone the project: `git clone --recursive https://github.com/lvgl/lv_port_riverdi_stm32u5`
+- Clone the project: `git clone --recursive https://github.com/hussamaldean/LvGL-V9-Port-STM32H735G-DK.git`
 - Open *STM32CubeIDE* and import project:` File => Open Projects from File System... => Directory => Select the "STM32CubeIde" folder => Finish`
 - Build the project (for the best performance use *Release* configuration with *-O2* flag): `Project => Build Project`
 - Click the ![image](https://github.com/lvgl/lv_port_riverdi_70-stm32h7/assets/7599318/ad1ba904-f917-4e0c-97b3-1c1ca12cf185) Run button to flash the project
